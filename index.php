@@ -6,7 +6,6 @@
  * Time: 3:26 PM
  */
 
-echo "test";
 $access_token = "EAAOZAgG3mWPYBAFRhUt6HTgugVZAIghzDzEZBi6UegSwZCz0jZBmESIDUiYkFqqyjLJs0r4D4GCoD1aQbaNhwtJqU4fZCM2VBGolYe1ALB59MvmZCt4Iel0SEK4feE5YHZCK3H3abA1dvgCffpuR65P1IoMQQ1ziT50de6lfCY23aQZDZD";
 $verify_token = "fb_test_bot";
 $hub_verify_token = null;
