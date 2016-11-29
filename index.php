@@ -34,7 +34,10 @@ if(preg_match('[salut|bonjour|salam|hello|hola|slm|hi]', strtolower($message))) 
 
         $message_to_reply = 'Bonjour, bienvenue à la page de la Royal Air Maroc';
     
-} else {
+} else if (preg_match('[ça va|^comment allez vous ?$|^comment aller vous ?$|^CV?$|^cava ?$|^ca va$|]', strtolower($message))) {
+    $message_to_reply = 'Trés bien et vous ?';
+}
+else {
     $message_to_reply = 'Excusez moi, je n\'ai pas bien compris :)';
 }
 
