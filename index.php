@@ -6,6 +6,31 @@
  * Time: 3:26 PM
  */
 
+function replacestr($text)
+{
+
+    $textfinal = $text;
+    $textfinal = preg_replace('#Ç#', 'C', $textfinal);
+    $textfinal = preg_replace('#ç#', 'c', $textfinal);
+    $textfinal = preg_replace('#è|é|ê|ë#', 'e', $textfinal);
+    $textfinal = preg_replace('#È|É|Ê|Ë#', 'E', $textfinal);
+    $textfinal = preg_replace('#à|á|â|ã|ä|å#', 'a', $textfinal);
+    $textfinal = preg_replace('#@|À|Á|Â|Ã|Ä|Å#', 'A', $textfinal);
+    $textfinal = preg_replace('#ì|í|î|ï#', 'i', $textfinal);
+    $textfinal = preg_replace('#Ì|Í|Î|Ï#', 'I', $textfinal);
+    $textfinal = preg_replace('#ð|ò|ó|ô|õ|ö#', 'o', $textfinal);
+    $textfinal = preg_replace('#Ò|Ó|Ô|Õ|Ö#', 'O', $textfinal);
+    $textfinal = preg_replace('#ù|ú|û|ü#', 'u', $textfinal);
+    $textfinal = preg_replace('#Ù|Ú|Û|Ü#', 'U', $textfinal);
+    $textfinal = preg_replace('#ý|ÿ#', 'y', $textfinal);
+    $textfinal = preg_replace('#Ý#', 'Y', $textfinal);
+	
+    $textfinal = strtolower ($textfinal);
+	$textfinal  = str_replace(' ', '', $textfinal);
+    
+    return $textfinal;
+}
+
 $access_token = "EAAOZAgG3mWPYBAFRhUt6HTgugVZAIghzDzEZBi6UegSwZCz0jZBmESIDUiYkFqqyjLJs0r4D4GCoD1aQbaNhwtJqU4fZCM2VBGolYe1ALB59MvmZCt4Iel0SEK4feE5YHZCK3H3abA1dvgCffpuR65P1IoMQQ1ziT50de6lfCY23aQZDZD";
 $verify_token = "fb_test_bot";
 $hub_verify_token = null;
@@ -30,13 +55,18 @@ $message_to_reply = '';
 /**
  * Some Basic rules to validate incoming messages
  */
-if(preg_match('[salut|bonjour|salam|hello|hola|slm|hi]', strtolower($message))) {
+if(preg_match('[salut|bonjour|salam|hello|hola|slm|hi]', replacestr($message))) {
 
         $message_to_reply = 'Bonjour, bienvenue à la page de la Royal Air Maroc';
     
-} else if (preg_match('[ça va|^comment allez vous ?$|^comment aller vous ?$|^CV?$|^cava ?$|^ca va$]', strtolower($message))) {
+} else if (preg_match('[cava?|commentallezvous|commentallervous|^cv?$|cava?|^cv$|commentvastu?|commenvatu?|commentvatu?]', replacestr($message))) {
     $message_to_reply = 'Trés bien et vous ?';
 }
+else if (preg_match('^merci$', replacestr($message))) {
+    $message_to_reply = 'Je vous en prie :)';
+}
+
+
 else {
     $message_to_reply = 'Excusez moi, je n\'ai pas bien compris :)';
 }
