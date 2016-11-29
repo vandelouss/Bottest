@@ -30,14 +30,10 @@ $message_to_reply = '';
 /**
  * Some Basic rules to validate incoming messages
  */
-if(preg_match('[time|current time|now]', strtolower($message))) {
+if(preg_match('[salut|bonjour|salam|hello|hola|slm|hi]', strtolower($message))) {
 
-    // Make request to Time API
-    ini_set('user_agent','Mozilla/4.0 (compatible; MSIE 6.0)');
-    $result = file_get_contents("http://www.timeapi.org/utc/now?format=%25a%20%25b%20%25d%20%25I:%25M:%25S%20%25Y");
-    if($result != '') {
-        $message_to_reply = $result;
-    }
+        $message_to_reply = 'Bonjour, bienvenue à la page de la Royal Air Maroc';
+    
 } else {
     $message_to_reply = 'Excusez moi, je n\'ai pas bien compris :)';
 }
