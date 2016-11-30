@@ -66,7 +66,7 @@ else if (preg_match('[^tresbien$|^bien$|^superbien$|^hamdolilah$|^caroule$|^cava
     $message_to_reply = 'Heureux de le savoir :D, Comment puis-je rendre votre journée encore meilleur?';
 }
 else if (preg_match('[pasbien|canevapasbien|pasdutout|caneroulepas|canevapas|padutout]', replacestr($message))) {
-    $message_to_reply = ':( j\'espère que ca s\'arrangera , Comment puis-je rendre votre journée encore meilleur :)?';
+    $message_to_reply = ':( j\'espère que ca s\'arrangera , Comment puis-je rendre votre journée meilleur :)?';
 }
 else if (preg_match('^merci$', replacestr($message))) {
     $message_to_reply = 'Je vous en prie :)';
