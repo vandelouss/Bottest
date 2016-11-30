@@ -55,18 +55,22 @@ $message_to_reply = '';
 /**
  * Some Basic rules to validate incoming messages
  */
-if(preg_match('[salut|bonjour|salam|hello|hola|slm|hi]', replacestr($message))) {
+if(preg_match('[salut|bonjour|salam|hello|hola|slm|hi|bjr]', replacestr($message))) {
 
         $message_to_reply = 'Bonjour, bienvenue à la page de la Royal Air Maroc';
     
-} else if (preg_match('[cava?|commentallezvous|commentallervous|^cv?$|cava?|^cv$|commentvastu?|commenvatu?|commentvatu?]', replacestr($message))) {
+} else if (preg_match('[commentallezvous|commentallervous|cv?|cava?|commentvastu|commenvatu|commentvatu]', replacestr($message))) {
     $message_to_reply = 'Trés bien et vous ?';
+}
+else if (preg_match('[tresbien|bien|superbien|hamdolilah|caroule|cava]', replacestr($message))) {
+    $message_to_reply = 'Heureux de le savoir :D, Comment puis-je rendre votre journée encore meilleur?';
+}
+else if (preg_match('[pasbien|canevapasbien|pasdutout|caneroulepas|canevapas|padutout]', replacestr($message))) {
+    $message_to_reply = ':( j\'espère que ca s\'arrangera , Comment puis-je rendre votre journée encore meilleur :)?';
 }
 else if (preg_match('^merci$', replacestr($message))) {
     $message_to_reply = 'Je vous en prie :)';
 }
-
-
 else {
     $message_to_reply = 'Excusez moi, je n\'ai pas bien compris :)';
 }
