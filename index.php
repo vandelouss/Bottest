@@ -59,10 +59,10 @@ if(preg_match('[salut|bonjour|salam|hello|hola|slm|hi|bjr]', replacestr($message
 
         $message_to_reply = 'Bonjour, bienvenue à la page de la Royal Air Maroc';
     
-} else if (preg_match('[commentallezvous|commentallervous|cv?|cava?|commentvastu|commenvatu|commentvatu]', replacestr($message))) {
+} else if (preg_match('[commentallezvous|commentallervous|cv?|^cava?$|commentvastu|commenvatu|commentvatu]', replacestr($message))) {
     $message_to_reply = 'Trés bien et vous ?';
 }
-else if (preg_match('[tresbien|bien|superbien|hamdolilah|caroule|cava]', replacestr($message))) {
+else if (preg_match('[^tresbien$|^bien$|^superbien$|^hamdolilah$|^caroule$|^cava$]', replacestr($message))) {
     $message_to_reply = 'Heureux de le savoir :D, Comment puis-je rendre votre journée encore meilleur?';
 }
 else if (preg_match('[pasbien|canevapasbien|pasdutout|caneroulepas|canevapas|padutout]', replacestr($message))) {
